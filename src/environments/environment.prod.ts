@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  evnFireBaseKEY: 'AIzaSyCT9AzWtMXkAzmSnDfzu2E0wNvHAo3y1NA'
 };

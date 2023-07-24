@@ -43,9 +43,12 @@
           ngModel
           name="password"
           required
+          password
+          #password_="ngModel"
+          [class-x]="password_.invalid"
           minlength="6"
-          
         />
+        <p class="text-danger" *ngIf="!password_.valid && password_.touched">Password is invalid</p>
       </div>
       <div>
         <button

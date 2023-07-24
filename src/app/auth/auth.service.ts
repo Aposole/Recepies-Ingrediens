@@ -1,8 +1,8 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
-
 import { User } from './user.model';
 import { Router } from '@angular/router';
 
@@ -30,7 +30,7 @@ export class AuthService {
   signup(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCT9AzWtMXkAzmSnDfzu2E0wNvHAo3y1NA',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.evnFireBaseKEY,
         {
           email: email,
           password: password,
@@ -54,7 +54,7 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCT9AzWtMXkAzmSnDfzu2E0wNvHAo3y1NA',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.evnFireBaseKEY,
         {
           email: email,
           password: password,
